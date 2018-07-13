@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE siute SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<parameter name = "application.name" value = "Calculator">
+
+<!-- ~~~~~~~~~~~~~~~~~~~ ORT TEST SUITE ~~~~~~~~~~~~~~~~~~~ -->
+
+<suite name = "ORTTestSuite" verbose = "1">
+    <groups>
+        <run>
+            <include name = "ORTTest" />
+        </run>
+    </groups>
+    <test name = "StandardPage Tests">
+        <class name = "labs.vish.automation.Calculator.Tests.StandardPageTests">
+            <method>
+                <!-- <include name = ""> -->
+                <!-- <exclude name = ""> -->
+            <method>
+        </class>
+    </test>
+</suite>
