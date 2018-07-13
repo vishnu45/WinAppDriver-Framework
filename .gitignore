@@ -46,3 +46,6 @@ buildNumber.properties
 
 # project specific
 **/test-output/**
+
+*.factorypath
+*.vscode
