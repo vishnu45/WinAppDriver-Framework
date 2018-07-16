@@ -26,7 +26,7 @@ public class TestBase {
     public void beforeSuite(ITestContext ctx) throws MalformedURLException, InterruptedException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app", "Microsoft.WindowsCalculator_10.1805.1201.0_x64__8wekyb3d8bbwe");
+        capabilities.setCapability("app", "microsoft.windowscalculator_8wekyb3d8bbwe!app");
         capabilities.setCapability("deviceName", "WindowsPC");
         capabilities.setCapability("platformName", "Windows");
 
