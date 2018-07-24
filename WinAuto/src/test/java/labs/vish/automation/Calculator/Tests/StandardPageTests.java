@@ -9,9 +9,11 @@ public class StandardPageTests extends TestBase {
     
     @Test(  description = "Add 2 numbers",
             groups = {"ORTTest"} )
-    public void testAdditionOperation() {
+    public void testAdditionOperation() throws InterruptedException {
+        // System.out.println("ADD");
         Start
-            .GoToStandardPage();
+            .GoToStandardPage()
+            .VerifyAddOperation();
     }
 
 }
