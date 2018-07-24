@@ -3,7 +3,9 @@ package labs.vish.automation.core;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterGroups;
@@ -20,7 +22,9 @@ import io.appium.java_client.windows.WindowsDriver;
 
 public class TestBase {
     
-    public static WindowsDriver AppSession;    
+    public static WindowsDriver AppSession;
+    public static WebDriverWait explicitWait;
+    public static Actions keyAction;
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite(ITestContext ctx) throws MalformedURLException, InterruptedException {
@@ -31,6 +35,10 @@ public class TestBase {
         capabilities.setCapability("platformName", "Windows");
 
         AppSession = new WindowsDriver(new URL("http://0.0.0.0:4747/wd/hub"), capabilities);
+
+        // OTHER INITIALIZATIONS
+        explicitWait = new WebDriverWait(AppSession, 60);
+        keyAction = new Actions(AppSession);
 
         Thread.sleep(2000);
 

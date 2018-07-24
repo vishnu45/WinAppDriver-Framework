@@ -13,10 +13,10 @@
     </groups>
     <test name = "StandardPage Tests">
         <class name = "labs.vish.automation.Calculator.Tests.StandardPageTests">
-            <method>
-                <!-- <include name = ""> -->
-                <!-- <exclude name = ""> -->
-            <method>
+            <!-- <method>
+                <include name = "testAdditionOperation">
+                <exclude name = ""> 
+            <method> -->
         </class>
     </test>
 </suite>
