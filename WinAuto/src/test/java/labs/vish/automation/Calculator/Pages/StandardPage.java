@@ -1,5 +1,7 @@
 package labs.vish.automation.Calculator.Pages;
 
+import org.apache.commons.lang3.StringUtils;
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -30,13 +32,13 @@ public class StandardPage extends MasterPage {
         Thread.sleep(1000);
         TestBase.AppSession.findElementByName(StandardPgObj.BTN_NUM_TWO.getValue()).click();
         Thread.sleep(1000);
-        TestBase.AppSession.findElementByName(StandardPgObj.BTN_OPR_EQUALS.getValue()).click();
+        TestBase.AppSession.findElementByName(StandardPgObj.BTN_OPR_EQUALS.getValue()).click();        
+        
+        String result = TestBase.AppSession.findElementByAccessibilityId("CalculatorResults").getText();
+        result = StringUtils.substringAfter(result, "Display is ");
 
-        String result = TestBase.AppSession
-            .findElementByAccessibilityId("normalOutput")            
-            .getText();
-        System.out.println(result);
-
+        Assertions.assertThat(result).isEqualTo(Integer.toString(3));
+        
         return this;
     }
 
