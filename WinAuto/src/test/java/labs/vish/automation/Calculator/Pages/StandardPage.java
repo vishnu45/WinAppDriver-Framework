@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import labs.vish.automation.Calculator.PageObjects.StandardPageObjects;
+import labs.vish.automation.core.DriverActions;
 import labs.vish.automation.core.TestBase;
 
 public class StandardPage extends MasterPage {
@@ -26,17 +27,14 @@ public class StandardPage extends MasterPage {
     }
 
     public StandardPage VerifyAddOperation() throws InterruptedException {
-        TestBase.AppSession.findElementByName(StandardPgObj.BTN_NUM_ONE.getValue()).click();
-        Thread.sleep(1000);
-        TestBase.AppSession.findElementByName(StandardPgObj.BTN_OPR_PLUS.getValue()).click();
-        Thread.sleep(1000);
-        TestBase.AppSession.findElementByName(StandardPgObj.BTN_NUM_TWO.getValue()).click();
-        Thread.sleep(1000);
-        TestBase.AppSession.findElementByName(StandardPgObj.BTN_OPR_EQUALS.getValue()).click();        
         
-        String result = TestBase.AppSession.findElementByAccessibilityId("CalculatorResults").getText();
+        DriverActions.Click(StandardPgObj.BTN_NUM_ONE);
+        DriverActions.Click(StandardPgObj.BTN_OPR_PLUS);
+        DriverActions.Click(StandardPgObj.BTN_NUM_TWO);
+        DriverActions.Click(StandardPgObj.BTN_OPR_EQUALS);        
+        
+        String result = DriverActions.GetText(StandardPgObj.CALC_RESULTS);
         result = StringUtils.substringAfter(result, "Display is ");
-
         Assertions.assertThat(result).isEqualTo(Integer.toString(3));
         
         return this;
