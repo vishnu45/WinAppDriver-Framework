@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE siute SYSTEM "http://testng.org/testng-1.0.dtd">
-
-<parameter name = "application.name" value = "Calculator">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <!-- ~~~~~~~~~~~~~~~~~~~ ORT TEST SUITE ~~~~~~~~~~~~~~~~~~~ -->
 
-<suite name = "ORT Test Suite" verbose = "1">
+<suite name = "ORT Test Suite" verbose = "1">    
+
     <groups>
         <run>
             <include name = "ORTTest" />
         </run>
     </groups>
+
+    <parameter name = "application" value = "microsoft.windowscalculator_8wekyb3d8bbwe!app" />    
+    <parameter name = "device.name" value = "WindowsPC" />
+    <parameter name = "platform.name" value = "Windows" />
+
     <test name = "StandardPage Tests">
-        <class name = "labs.vish.automation.Calculator.Tests.StandardPageTests">
-            <!-- <method>
-                <include name = "testAdditionOperation">
-                <exclude name = ""> 
-            <method> -->
-        </class>
+        <classes>
+            <class name = "labs.vish.automation.Calculator.Tests.StandardPageTests">
+                <methods>
+                    <include name = "testAdditionOperation" />
+                    <!-- <exclude name = "">  -->
+                </methods>
+            </class>
+        </classes>
     </test>
+
 </suite>

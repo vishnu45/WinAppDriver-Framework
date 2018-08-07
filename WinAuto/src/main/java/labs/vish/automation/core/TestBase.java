@@ -27,12 +27,13 @@ public class TestBase {
     public static Actions keyAction;
 
     @BeforeSuite(alwaysRun = true)
-    public void beforeSuite(ITestContext ctx) throws MalformedURLException, InterruptedException {
+    public void beforeSuite(ITestContext context) throws MalformedURLException, InterruptedException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app", "microsoft.windowscalculator_8wekyb3d8bbwe!app");
-        capabilities.setCapability("deviceName", "WindowsPC");
-        capabilities.setCapability("platformName", "Windows");
+
+        capabilities.setCapability("app", context.getCurrentXmlTest().getSuite().getParameter("application"));
+        capabilities.setCapability("deviceName", context.getCurrentXmlTest().getSuite().getParameter("device.name"));
+        capabilities.setCapability("platformName", context.getCurrentXmlTest().getSuite().getParameter("platform.name"));
 
         AppSession = new WindowsDriver(new URL("http://0.0.0.0:4747/wd/hub"), capabilities);
 
@@ -51,7 +52,9 @@ public class TestBase {
 
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
+        
 
+        
     }
 
     @AfterTest(alwaysRun = true)
