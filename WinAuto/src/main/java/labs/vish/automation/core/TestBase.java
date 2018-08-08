@@ -25,6 +25,7 @@ public class TestBase {
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite(ITestContext testContext) throws MalformedURLException, InterruptedException {
 
+        Log.startTestSuite(testContext);
         DriverFactory.StartApplication(testContext);
 
     }

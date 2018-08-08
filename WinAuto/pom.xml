@@ -11,11 +11,11 @@
   <properties>
     <java.version>1.8</java.version>
     <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
-    <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+    <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
     <selenium.version>3.13.0</selenium.version>
     <testng.version>6.11</testng.version>
     <appium.version>6.1.0</appium.version>
-    <log4j.version>2.11.0</log4j.version>
+    <log4j.version>2.9.1</log4j.version>
     <assertj.version>3.10.0</assertj.version>
     <commons-lang3.version>3.7</commons-lang3.version>
   </properties>
@@ -91,7 +91,8 @@
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>${basedir}/src/test/java/labs/vish/automation/Calculator/RunConfig/TestSuite.xml</suiteXmlFile>
+            <suiteXmlFile>${basedir}/src/test/Resources/TestSuite.xml</suiteXmlFile>
+            <!-- <suiteXmlFile>${basedir}/src/test/java/labs/vish/automation/Calculator/Resources/TestSuite.xml</suiteXmlFile> -->
           </suiteXmlFiles>
         </configuration>
       </plugin>
