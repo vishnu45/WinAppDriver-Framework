@@ -12,19 +12,19 @@ public class DriverActions {
         WebElement element = null;
         
         if (locator.getValue().contains("automationId=")) {
-            element = TestBase.AppSession
+            element = Common.AppSession
                 .findElementByAccessibilityId(StringUtils.substringAfter(locator.getValue(), "automationId="));
         }
         if (locator.getValue().contains("className=")) {
-            element = TestBase.AppSession
+            element = Common.AppSession
             .findElementByClassName(StringUtils.substringAfter(locator.getValue(), "className="));
         }
         if (locator.getValue().contains("name=")) {            
-            element = TestBase.AppSession            
+            element = Common.AppSession            
                 .findElementByName(StringUtils.substringAfter(locator.getValue(), "name="));
         }
         if (locator.getValue().contains("xpath=")) {
-            element = TestBase.AppSession
+            element = Common.AppSession
                 .findElementByName(StringUtils.substringAfter(locator.getValue(), "xpath="));
         }
         

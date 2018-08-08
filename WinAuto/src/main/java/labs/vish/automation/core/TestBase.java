@@ -22,26 +22,10 @@ import io.appium.java_client.windows.WindowsDriver;
 
 public class TestBase {
     
-    public static WindowsDriver AppSession;
-    public static WebDriverWait explicitWait;
-    public static Actions keyAction;
-
     @BeforeSuite(alwaysRun = true)
-    public void beforeSuite(ITestContext context) throws MalformedURLException, InterruptedException {
+    public void beforeSuite(ITestContext testContext) throws MalformedURLException, InterruptedException {
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        capabilities.setCapability("app", context.getCurrentXmlTest().getSuite().getParameter("application"));
-        capabilities.setCapability("deviceName", context.getCurrentXmlTest().getSuite().getParameter("device.name"));
-        capabilities.setCapability("platformName", context.getCurrentXmlTest().getSuite().getParameter("platform.name"));
-
-        AppSession = new WindowsDriver(new URL("http://0.0.0.0:4747/wd/hub"), capabilities);
-
-        // OTHER INITIALIZATIONS
-        explicitWait = new WebDriverWait(AppSession, 60);
-        keyAction = new Actions(AppSession);
-
-        Thread.sleep(2000);
+        DriverFactory.StartApplication(testContext);
 
     }
 

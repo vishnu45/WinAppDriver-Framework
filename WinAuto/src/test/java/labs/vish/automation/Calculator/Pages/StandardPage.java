@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import labs.vish.automation.Calculator.PageObjects.StandardPageObjects;
+import labs.vish.automation.core.Common;
 import labs.vish.automation.core.DriverActions;
 import labs.vish.automation.core.TestBase;
 
@@ -20,7 +21,7 @@ public class StandardPage extends MasterPage {
 
     public StandardPage StartStandardPage() {
         StandardPage page = new StandardPage();
-        TestBase.explicitWait
+        Common.explicitWait
             .until(ExpectedConditions
                 .visibilityOfElementLocated(By.name(StandardPgObj.SP_MAIN_LABEL.getValue())));        
         return page;
