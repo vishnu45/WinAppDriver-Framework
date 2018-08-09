@@ -64,11 +64,11 @@ public class Log {
     }
 
     public static void expected(String message) {
-        logger.trace(">> EXPECTED : " + message);
+        logger.info("> EXPECTED RESULT : " + message);
     }
 
     public static void actual(String message) {
-        logger.trace(">> ACTUAL : " + message);
+        logger.info("> ACTUAL RESULT : " + message);
     }
 
 }

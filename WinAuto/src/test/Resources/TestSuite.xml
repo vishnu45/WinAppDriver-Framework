@@ -20,7 +20,8 @@
         <classes>
             <class name = "labs.vish.automation.Calculator.Tests.StandardPageTests">
                 <methods>
-                    <include name = "testAdditionOperation" />
+                    <!-- <include name = "testAdditionOperation" />
+                    <include name = "testSubtractionOperation" /> -->
                     <!-- <exclude name = "">  -->
                 </methods>
             </class>

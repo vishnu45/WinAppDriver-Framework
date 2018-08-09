@@ -16,4 +16,13 @@ public class StandardPageTests extends TestBase {
             .VerifyAddOperation();
     }
 
+    @Test(  description = "Subtract 2 numbers",
+            groups = {"ORTTest"} )
+    public void testSubtractionOperation() throws InterruptedException {
+        // System.out.println("ADD");
+        Start
+            .GoToStandardPage()
+            .VerifySubtractOperation();
+    }
+
 }

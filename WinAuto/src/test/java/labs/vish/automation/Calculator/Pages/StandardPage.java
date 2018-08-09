@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import labs.vish.automation.Calculator.PageObjects.StandardPageObjects;
 import labs.vish.automation.core.Common;
 import labs.vish.automation.core.DriverActions;
+import labs.vish.automation.core.Log;
 import labs.vish.automation.core.TestBase;
 
 public class StandardPage extends MasterPage {
@@ -29,16 +30,36 @@ public class StandardPage extends MasterPage {
 
     public StandardPage VerifyAddOperation() throws InterruptedException {
         
-        DriverActions.Click(StandardPgObj.BTN_NUM_ONE);
+        Log.expected("Check if sum of 2 numbers is correct");
+        DriverActions.Click(StandardPgObj.BTN_NUM_1);
         DriverActions.Click(StandardPgObj.BTN_OPR_PLUS);
-        DriverActions.Click(StandardPgObj.BTN_NUM_TWO);
+        DriverActions.Click(StandardPgObj.BTN_NUM_2);
         DriverActions.Click(StandardPgObj.BTN_OPR_EQUALS);        
-        
-        String result = DriverActions.GetText(StandardPgObj.CALC_RESULTS);
-        result = StringUtils.substringAfter(result, "Display is ");
-        Assertions.assertThat(result).isEqualTo(Integer.toString(3));
-        
+                
+        Assertions.assertThat(getDisplayOutputText()).isEqualTo(Integer.toString(3));
+        Log.actual("Sum of 2 numbers is correct");        
         return this;
+    }
+
+    public StandardPage VerifySubtractOperation() throws InterruptedException {
+        
+        Log.expected("Check if sum of 2 numbers is correct");
+        DriverActions.Click(StandardPgObj.BTN_NUM_9);
+        DriverActions.Click(StandardPgObj.BTN_OPR_MINUS);
+        DriverActions.Click(StandardPgObj.BTN_NUM_4);
+        DriverActions.Click(StandardPgObj.BTN_OPR_EQUALS);        
+                
+        Assertions.assertThat(getDisplayOutputText()).isEqualTo(Integer.toString(5));
+        Log.actual("Sum of 2 numbers is correct");        
+        return this;
+    }
+
+    /**
+     * To retrieve Calculator output display text
+     */
+    public String getDisplayOutputText() {
+        String result = DriverActions.GetText(StandardPgObj.CALC_RESULTS);
+        return StringUtils.substringAfter(result, "Display is ");
     }
 
 }
