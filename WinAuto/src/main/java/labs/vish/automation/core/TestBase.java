@@ -1,5 +1,6 @@
 package labs.vish.automation.core;
 
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -24,27 +25,24 @@ public class TestBase {
     
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite(ITestContext testContext) throws MalformedURLException, InterruptedException {
-
         Log.startTestSuite(testContext);
         DriverFactory.StartApplication(testContext);
-
     }
 
     @AfterSuite(alwaysRun = true)
-    public void afterSuite() {
-
+    public void afterSuite() {        
+        DriverFactory.StopApplication();
+        Log.endTestSuite();
     }
 
     @BeforeTest(alwaysRun = true)
     public void beforeTest() {
         
-
-        
     }
 
     @AfterTest(alwaysRun = true)
     public void afterTest() {
-
+        
     }
 
     @BeforeGroups(alwaysRun = true)
@@ -68,13 +66,13 @@ public class TestBase {
     }
 
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethod() {
-        
+    public void beforeMethod(Method method) {
+        Log.startTestCase(method);
     }
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod() {
-        
+        Log.endTestCase();
     }
 
 }

@@ -11,7 +11,8 @@
         </run>
     </groups>
 
-    <parameter name = "application" value = "microsoft.windowscalculator_8wekyb3d8bbwe!app" />    
+    <parameter name = "application.name" value = "Calculator" />
+    <parameter name = "application.exe" value = "microsoft.windowscalculator_8wekyb3d8bbwe!app" />
     <parameter name = "device.name" value = "WindowsPC" />
     <parameter name = "platform.name" value = "Windows" />
 

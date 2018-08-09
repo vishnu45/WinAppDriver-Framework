@@ -21,54 +21,54 @@ public class Log {
     public static void startTestSuite(ITestContext testContext) {
         logInitialize();
         logger.info("\n");
-        logger.info("**************************************************");
-        logger.info("* TEST SUITE : " + testContext.getCurrentXmlTest().getSuite().getName());
-        logger.info("**************************************************");
+        logger.info("-------------------------------------------------------------------------------");
+        logger.info(" TEST SUITE : " + testContext.getCurrentXmlTest().getSuite().getName());
+        logger.info("-------------------------------------------------------------------------------");
     }
 
     public static void endTestSuite() {
         logger.info("\n");
-        logger.info("***************** TEST SUITE END *****************");
+        logger.info("-------------------------------- TEST SUITE END --------------------------------");
     }
 
     public static void startTestCase(Method method) {
         logger.info("\n");
-        logger.info("**************************************************");
-        logger.info("* TEST CASE : " + method.getName());
-        logger.info("**************************************************");
+        logger.info("------------------------------------------------");
+        logger.info(" TEST CASE : " + method.getName());
+        logger.info("------------------------------------------------");
     }
 
     public static void endTestCase() {
         logger.info("\n");
-        logger.info("***************** TEST CASE END ******************");
+        logger.info("------------------------------------------------");
     }
 
     public static void info(String message) {
-        logger.info(message);
+        logger.info("> INFO: " + message);
     }
 
     public static void warn(String message) {
-        logger.warn(message);
+        logger.warn("> WARN: " + message);
     }
 
     public static void error(String message) {
-        logger.error(message);
+        logger.error("> ERROR: " + message);
     }
 
     public static void fatal(String message) {
-        logger.fatal(message);
+        logger.fatal("> FATAL: " + message);
     }
 
     public static void debug(String message) {
-        logger.debug(message);
+        logger.debug("> DEBUG: " + message);
     }
 
     public static void expected(String message) {
-        logger.trace("EXPECTED : " + message);
+        logger.trace(">> EXPECTED : " + message);
     }
 
     public static void actual(String message) {
-        logger.trace("ACTUAL : " + message);
+        logger.trace(">> ACTUAL : " + message);
     }
 
 }

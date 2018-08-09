@@ -34,7 +34,8 @@ public class DriverActions {
     /**
      * Action to click particular locator element
      */
-    public static void Click(Locator locator) {        
+    public static void Click(Locator locator) {
+        Log.info("Click on " + locator.getName());       
         FindElement(locator).click();
     }
 

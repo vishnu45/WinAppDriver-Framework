@@ -14,9 +14,11 @@ public class DriverFactory {
     
     public static void StartApplication(ITestContext testContext) throws MalformedURLException, InterruptedException {
         
+        String ApplicationName = testContext.getCurrentXmlTest().getSuite().getParameter("application.name");
+        Log.info("Starting " + ApplicationName + " application");
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("app", testContext.getCurrentXmlTest().getSuite().getParameter("application"));
+        capabilities.setCapability("app", testContext.getCurrentXmlTest().getSuite().getParameter("application.exe"));
         capabilities.setCapability("deviceName", testContext.getCurrentXmlTest().getSuite().getParameter("device.name"));
         capabilities.setCapability("platformName", testContext.getCurrentXmlTest().getSuite().getParameter("platform.name"));
 
@@ -27,6 +29,13 @@ public class DriverFactory {
         Common.keyAction = new Actions(Common.AppSession);
 
         Thread.sleep(2000);
+    }
+
+    public static void StopApplication() {
+        if (Common.AppSession != null) {
+            Common.AppSession.quit();
+        }
+        Common.AppSession = null;
     }
 
 }
